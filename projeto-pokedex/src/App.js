@@ -1,13 +1,10 @@
 import React from 'react'
-import Footer from './components/Footer/Footer'
-import Header from './components/Header/Header'
+import Router from './router/Router'
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <p> MAIN</p>
-      <Footer />
+      <Router />
     </div>
   );
 }

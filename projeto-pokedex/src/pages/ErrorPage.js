@@ -1,16 +1,16 @@
 import React from 'react'
-import Header from '../components/MainPokedex/Header'
+import Header from '../components/MainHome/Header'
 import Footer from '../components/Footer/Footer'
 
-function PokedexPage() {
+function ErrorPage() {
     return (
       <div>
           <Header />
-        <p>PokedexPage</p>
+        <p>nada aqui :(</p>
         <Footer />
-      </div>
+    </div>
     );
   }
   
-  export default PokedexPage;
+  export default ErrorPage;
   
