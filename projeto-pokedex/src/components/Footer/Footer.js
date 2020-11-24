@@ -9,9 +9,9 @@ color: black;
 background-color: #FDE964;
 width: 100vw;
 height: 5vh;
-margin-top:700px;
-position:fixed;
-bottom: 1;
+/* margin-top:700px; */
+/* position:fixed;
+bottom: 1; */
 `
 
 
