@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 const CardContainer = styled.div`
   border: 3px solid white;
@@ -50,27 +51,32 @@ const ButtonRemove = styled.button`
 `
 
 
-const ButtonDetails = styled.button`
+const StyleCard = styled(Card)`
  border: 3px solid white;
   padding: 4px;
   border-radius: 5px;
+  width: 18rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 `
 
 function CardPokemon() {
         
   
     return (
-      <CardContainer >
-         <ContainerInfo>  
-            <Photo src = {"https://picsum.photos/200/300"} />
-            <Name> Pokemon Bonitinho </Name>
-            <ButtonsContainer>
-                <ButtonRemove> Remover da Pokedex </ButtonRemove>
-                <ButtonDetails> Ver detalhes </ButtonDetails>
-            </ButtonsContainer>
-            
-         </ContainerInfo>
-      </CardContainer>
+        
+        <StyleCard>
+        <Card.Img variant="top" src="https://picsum.photos/200/300" />
+        <Card.Body>
+          <Card.Title>Pokemon Bonitinho</Card.Title>
+          <Button variant="primary"> Remover da Pokedex </Button>
+          <Button variant="primary"> Ver detalhes </Button>
+        </Card.Body>
+      </StyleCard>
+
+
     );
   }
   
