@@ -16,7 +16,9 @@ const StyledCard = styled(Card)`
 `
 
 function CardPokemon(props) {
+    
     const pokemon = useRequestData(props.url, undefined)
+
     return (
         <div>
             {pokemon ? <StyledCard>
