@@ -55,4 +55,5 @@ display: flex;
 justify-content: center;
 flex-wrap: wrap;
 padding-top: 8%;
+background-color: black;
 `
