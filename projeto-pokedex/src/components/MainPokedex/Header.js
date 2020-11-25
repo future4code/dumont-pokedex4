@@ -34,7 +34,7 @@ function Header() {
   return (
     <HeaderContainer >
       <ButtomLeft onClick={() => goToHome(history)}> VOLTAR </ButtomLeft>
-      <Title  onClick={() => goToHome(history)}> LOGO </Title>
+      <Title  onClick={() => goToHome(history)}> POKEDEX </Title>
       <ButtomRight></ButtomRight>
     </HeaderContainer>
   );
