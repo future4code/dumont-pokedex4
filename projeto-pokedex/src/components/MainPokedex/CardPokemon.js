@@ -2,79 +2,54 @@ import React from 'react'
 import styled from 'styled-components'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import { goToDetails } from '../../router/coordinator'
+import { useHistory } from 'react-router-dom'
+import { useRequestData } from '../../hooks/useRequestData'
 
-const CardContainer = styled.div`
-  border: 3px solid white;
-  padding: 4px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  color: black;
-  width: 400px;
-  height: 450px;
-  margin: 12px;
-`;
 
-const ContainerInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 16px;
-  align-items: center;
-  
-`;
-
-const Photo = styled.img`
-  width: 100%;
-  max-height: 350px;
-`;
-
-const Name = styled.p`
-  display:inline;
-  justify-content:center;
-  flex-direction:row;
-  color: black;
-  font-size: 30px;
-  margin: 0 0 4px 0;
-  font-weight: 600;
-  border: 1px solid black;
-`;
-
+const StyledCard = styled(Card)`
+    width: 250px;
+    height: 400px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
+const StyledButton = styled(Button)`
+    width: 100px;
+    height: 70px;
+`
 const ButtonsContainer = styled.div`
-  display: flex;
-  justify-content:space-around;
-`
-const ButtonRemove = styled.button`
- border: 3px solid white;
-  padding: 4px;
-  border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1em;
 `
 
-
-const StyleCard = styled(Card)`
- border: 3px solid white;
-  padding: 4px;
-  border-radius: 5px;
-  width: 18rem;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+const StyledImg = styled(Card.Img)`
+    width: 200px;
+    height: 200px;
+    padding: 1em;
 `
 
-function CardPokemon() {
-        
+function CardPokemon(props) {
+  const history = useHistory()
+  const pokemon = useRequestData(props.url, undefined)      
   
     return (
         
-        <StyleCard>
-        <Card.Img variant="top" src="https://picsum.photos/200/300" />
+        <StyledCard>
+        <StyledImg variant="top" src= {"https://picsum.photos/200/300"} />
         <Card.Body>
           <Card.Title>Pokemon Bonitinho</Card.Title>
-          <Button variant="primary"> Remover da Pokedex </Button>
-          <Button variant="primary"> Ver detalhes </Button>
+          <ButtonsContainer>
+          <StyledButton  variant="dark"> Del da Pokedex </StyledButton>
+          <StyledButton variant="dark" onClick={() => goToDetails(history)}>detalhes</StyledButton>
+          </ButtonsContainer>
         </Card.Body>
-      </StyleCard>
+      </StyledCard>
 
 
     );
