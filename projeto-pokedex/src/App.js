@@ -1,11 +1,17 @@
 import React from 'react'
 import Router from './router/Router'
+import PokemonContext from './contexts/PokemonContext'
+
+const pokemons = {}
 
 function App() {
+
   return (
-    <div className="App">
-      <Router />
-    </div>
+    <PokemonContext.Provider value={pokemons}>
+      <div className="App">
+        <Router />
+      </div>
+    </PokemonContext.Provider>
   );
 }
 
