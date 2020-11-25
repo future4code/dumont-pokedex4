@@ -1,14 +1,13 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button'
-import { useHistory } from 'react-router-dom'
-import { goToDetails } from '../../router/coordinator'
+import {Button} from 'react-bootstrap'
+
 
 function Buttons() {
     const history = useHistory()
     return (
         <div>
-            <Button variant="warning" onClick={() => goToDetails(history)}>detalhes</Button>
-            <Button variant="warning">add pokedex</Button>
+            <Button variant="warning" type="button" onClick={() => goToDetails(history)}>detalhes</Button>{' '}
+            <Button variant="warning" type="button">add pokedex</Button>{' '}
         </div>
     );
 }
