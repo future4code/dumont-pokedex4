@@ -9,12 +9,11 @@ const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  gap: 1em;
-  justify-content: center;
-  align-items: center;
   background-color: black;
+  justify-content: center;
+  gap: 3em;
   padding: 2em;
-  padding-left: 4em;
+  padding-left: 5em;
 `
 
 function HomePage() {

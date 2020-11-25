@@ -10,7 +10,6 @@ const HeaderContainer = styled.div`
   justify-content: center;
   color: black;
   background-color: #FDE964;
-  width: 100vw;
   height: 8vh;
   position: relative;
 `
