@@ -1,6 +1,4 @@
 import React, { useContext } from 'react'
-import Header from '../components/MainHome/Header'
-import Footer from '../components/Footer/Footer'
 import PokemonContext from '../contexts/PokemonContext'
 import { useRequestData } from '../hooks/useRequestData'
 import { baseUrl } from '../constants/urls'
@@ -24,14 +22,11 @@ function HomePage() {
 
   return (
     <div>
-      <Header />
       <GridContainer>
       {data && data.results.map((item) => {
         return <CardPokemon url={item.url} />
       })}
       </GridContainer>
-      
-      <Footer />
     </div>
   );
 }

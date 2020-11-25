@@ -1,6 +1,4 @@
 import React from 'react'
-import Header from '../components/MainPokedex/Header'
-import Footer from '../components/Footer/Footer'
 import styled from 'styled-components'
 import CardPokemon from '../components/MainPokedex/CardPokemon'
 
@@ -17,9 +15,7 @@ height:80vh;
 function PokedexPage() {
     return (
           <div>
-          <Header />
           <MainPokedex><CardPokemon /></MainPokedex>
-        <Footer />
           </div>
     );
   }
