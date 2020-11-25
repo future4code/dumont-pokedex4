@@ -10,7 +10,6 @@ const DetailsPage = () => {
             <DetailsFlexBox>
             <BoxA>
             <Img/>
-            <Img/>
             </BoxA>
             <BoxB>
             <PokemonAttack/>           
