@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import { goToHome } from '../router/coordinator'
+import logo from '../assets/logo.svg'
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -26,8 +27,9 @@ const ButtonLeft = styled.button`
   left: 10px;
 `
 
-const Title = styled.h1`
+const Logo = styled.img`
   cursor: pointer;
+  width: 10%;
 `
 
 function Header({ leftButtonFunction, rightButtonFunction, buttonTitle }) {
@@ -36,7 +38,7 @@ function Header({ leftButtonFunction, rightButtonFunction, buttonTitle }) {
   return (
     <HeaderContainer >
       <ButtonLeft onClick={() => leftButtonFunction(history)}> {buttonTitle} </ButtonLeft>
-      <Title  onClick={() => goToHome(history)}> LOGO </Title>
+      <Logo src={logo} onClick={() => goToHome(history)} />
       {rightButtonFunction && <ButtonRight onClick={() => rightButtonFunction(history)} >
                 Ir para pokedex
       </ButtonRight>}
