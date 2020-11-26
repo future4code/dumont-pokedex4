@@ -17,7 +17,7 @@ function Router() {
                 <HomePage />
                 <Footer />
             </Route>
-            <Route exact path= "/detalhes">
+            <Route exact path= "/detalhes/:nome">
                 <Header leftButtonFunction={goToHome}
                         rightButtonFunction={goToPokedex} buttonTitle={"Ver Pokemons"}/>
                 <DetailsPage />

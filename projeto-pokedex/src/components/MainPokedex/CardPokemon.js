@@ -2,14 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import { goToDetails } from '../../router/coordinator'
 import { useHistory } from 'react-router-dom'
 import { useRequestData } from '../../hooks/useRequestData'
 
 
 const StyledCard = styled(Card)`
     width: 250px;
-    height: 400px;
+    height: 100%;
     background-color: black;
     color: white;
     border: 1px solid white;
@@ -36,23 +35,26 @@ const StyledImg = styled(Card.Img)`
 
 function CardPokemon(props) {
   const history = useHistory()
-  const pokemon = useRequestData(props.url, undefined)      
-  
-    return (
-        
-        <StyledCard>
-        <StyledImg variant="top" src= {"https://picsum.photos/200/300"} />
-        <Card.Body>
-          <Card.Title>Pokemon Bonitinho</Card.Title>
-          <ButtonsContainer>
-          <StyledButton  variant="dark"> Del da Pokedex </StyledButton>
-          <StyledButton variant="dark" onClick={() => goToDetails(history)}>detalhes</StyledButton>
-          </ButtonsContainer>
-        </Card.Body>
-      </StyledCard>
+  const pokemon = useRequestData(props.url, undefined)
+
+  return (<div>
+    {pokemon && <StyledCard>
+      <StyledImg variant="top" src={pokemon.sprites.other.dream_world.front_default} />
+      <Card.Body>
+        <Card.Title>{pokemon.name}</Card.Title>
+        <ButtonsContainer>
+          <StyledButton variant="dark" onClick={null}>detalhes</StyledButton>
+          <StyledButton variant="dark" onClick={props.removePokeFromPokedex}> deletar Pokedex </StyledButton>
+        </ButtonsContainer>
+      </Card.Body>
+    </StyledCard>
+
+    }
+  </div>
 
 
-    );
-  }
-  
-  export default CardPokemon;
+
+  );
+}
+
+export default CardPokemon;
