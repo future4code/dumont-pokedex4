@@ -1,9 +1,7 @@
-import React, { useContext } from 'react'
-import PokemonContext from '../contexts/PokemonContext'
-import { useRequestData } from '../hooks/useRequestData'
-import { baseUrl } from '../constants/urls'
+import React, {useContext, useEffect} from 'react'
 import CardPokemon from '../components/MainHome/CardPokemon'
 import styled from 'styled-components'
+import GlobalStateContext from '../global/GlobalStateContext.js'
 
 const GridContainer = styled.div`
   display: grid;
@@ -17,14 +15,24 @@ const GridContainer = styled.div`
 `
 
 function HomePage() {
-  const data = useRequestData(`${baseUrl}`, undefined)
+  // chamando o state e o request
+  const { states, requests } = useContext(GlobalStateContext)
+
+  // chamando a função em um useEffect com sentido de didmount
+  useEffect(() => {
+    requests.getPokemons()
+  }, [])
+  // se vc coloca a função nesse array, vira um didupdate e assim entra em um looping infinito
 
   return (
     <div>
       <GridContainer>
-      {data && data.results.map((item) => {
+        {/* curto-circuito pra saber se a pokemonList ta viva, se sim pega o estado pokemonList e mapeia ele para pegar o url */}
+      {states.pokemonList && states.pokemonList.map((item) => {
         return <CardPokemon url={item.url} />
       })}
+      {/* ele vai mapear pelo tamanho do array da pokemonList, ou seja, vai aparecer 20 cards */}
+      {/* cada card terá seu url e fará uma requisão para pegar a url do pokemon (essa url contem TUDO do pokemon) */}
       </GridContainer>
     </div>
   );

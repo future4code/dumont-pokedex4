@@ -38,11 +38,17 @@ const ButtonsContainer = styled.div`
 
 function CardPokemon(props) {
     const history = useHistory()
+
+    // aqui faz a requisição só que em vez de usar o baseUrl, usa-se a props recebida e faz a requisição com ela
     const pokemon = useRequestData(props.url, undefined)
+    // poderia ser feito com uma função e um useEffect aqui no código, porem usei um hook para economizar espaço hehe
+    // O IMPORTANTE É FAZER DUAS FUNÇÕES PRA PEGAR DADOS, UMA NO GLOBAL E OUTRA SEM
 
     return (
         <div>
-            {pokemon ? <StyledCard>
+            {/* aqui tem aquela mesma coisa do component home, se tá vivo, aparece o card */}
+            {/* ISSO É NECESSARIO PARA AMBOS OS CASOS, com hook ou sem */}
+            {pokemon && <StyledCard>
                 <StyledImg variant="top" src={pokemon.sprites.other.dream_world.front_default} />
                 <Card.Body>
                     <Card.Title>{pokemon.name}</Card.Title>
@@ -52,7 +58,9 @@ function CardPokemon(props) {
                     </ButtonsContainer>
 
                 </Card.Body>
-            </StyledCard> : null}
+            </StyledCard> }
+
+            {/* essa é a estilização é a que o meu grupo fez, mas vc só precisa da foto, do nome e dos botoes */}
         </div>
     );
 }
