@@ -24,7 +24,7 @@ text-align: center;
 `
 export const PokeStatsContainer = styled.div`
 background-color: #f2f2f2f2;
-height: 540px;
+height: 430px;
 width: 290px;
 margin: 20px;
 box-shadow: 3px 3px 3px 3px #d9d9d9;
@@ -40,7 +40,7 @@ flex-direction: column;
 `
 export const PokeMovesContainer = styled.div`
 background-color: #f2f2f2f2;
-height: 439px;
+height: 430px;
 width: 300px;
 margin: 20px;
 box-shadow: 3px 3px 3px 3px #d9d9d9;
@@ -56,4 +56,16 @@ justify-content: center;
 flex-wrap: wrap;
 padding-top: 8%;
 background-color: black;
+`
+export const PokeTypeContainer = styled.div`
+background-color: #f2f2f2f2;
+height: 60px;
+width: 220px;
+margin: 20px;
+box-shadow: 3px 3px 3px 3px #d9d9d9;
+display: flex;
+flex-direction: column;
+justify-content:center;
+text-align: center;
+align-items: center;
 `
