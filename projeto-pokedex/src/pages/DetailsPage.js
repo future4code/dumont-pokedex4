@@ -9,9 +9,11 @@ import { baseUrl } from '../constants/urls'
 import { useParams } from 'react-router-dom'
 
 function DetailsPage() {
+    // pegar o :name lá da função 
     const pathParams = useParams();
     const name = pathParams.name
 
+    // fazendo a requisição usando o parametro recebido
     const pokeDetails = useRequestData(`${baseUrl}/${name}`, {})
 
     console.log(pokeDetails)

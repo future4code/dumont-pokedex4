@@ -39,10 +39,10 @@ function CardPokemon(props) {
 
     // aqui faz a requisição só que em vez de usar o baseUrl, usa-se a props recebida e faz a requisição com ela
     const pokemon = useRequestData(props.url, undefined)
-    // poderia ser feito com uma função e um useEffect aqui no código, porem usei um hook para economizar espaço hehe
-    // O IMPORTANTE É FAZER DUAS FUNÇÕES PRA PEGAR DADOS, UMA NO GLOBAL E OUTRA SEM
 
+    // funcao para ir pra pagina de detalhes do pokemon escolhido
     const goToDetails = (name) => {
+        // ela recebe um parametro que na chamada da função será pokemon.name e dai na url fica com o nome do pokemon
         history.push(`/detalhes/${name}`)
     }
 
