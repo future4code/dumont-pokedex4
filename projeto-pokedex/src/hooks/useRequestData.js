@@ -7,7 +7,6 @@ export const useRequestData = (url, initialState) => {
     useEffect(() => {
         axios.get(url).then(response => {
             setData(response.data);
-            console.log(response.data)
         }).catch(err => {
             console.log(err.message);
         })    

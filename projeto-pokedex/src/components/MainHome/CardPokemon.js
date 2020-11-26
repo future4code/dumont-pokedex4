@@ -4,8 +4,6 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
-import { goToDetails } from '../../router/coordinator'
-
 
 const StyledCard = styled(Card)`
     width: 250px;
@@ -44,6 +42,10 @@ function CardPokemon(props) {
     // poderia ser feito com uma função e um useEffect aqui no código, porem usei um hook para economizar espaço hehe
     // O IMPORTANTE É FAZER DUAS FUNÇÕES PRA PEGAR DADOS, UMA NO GLOBAL E OUTRA SEM
 
+    const goToDetails = (name) => {
+        history.push(`/detalhes/${name}`)
+    }
+
     return (
         <div>
             {/* aqui tem aquela mesma coisa do component home, se tá vivo, aparece o card */}
@@ -53,8 +55,8 @@ function CardPokemon(props) {
                 <Card.Body>
                     <Card.Title>{pokemon.name}</Card.Title>
                     <ButtonsContainer>
-                        <StyledButton variant="dark" onClick={() => goToDetails(history)}>detalhes</StyledButton>
-                        <StyledButton variant="dark" >add pokedex</StyledButton>
+                        <StyledButton variant="dark" onClick={() => goToDetails(pokemon.name)}>detalhes</StyledButton>
+                        <StyledButton variant="dark" onClick={props.addPokeToPokedex} >add pokedex</StyledButton>
                     </ButtonsContainer>
 
                 </Card.Body>
