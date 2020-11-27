@@ -7,10 +7,10 @@ const FlexContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 2em;
+    padding: 20px;
     background-color: black;
-    gap: 1em;
-    height: 100%;
+    gap: 10px;
+    height:1600px;
 `
 
 function HomePage() {
@@ -40,7 +40,7 @@ function HomePage() {
   }
 
   return (
-    <div>
+    
       <FlexContainer>
         {/* curto-circuito pra saber se a pokemonList ta viva, se sim pega o estado pokemonList e mapeia ele para pegar o url */}
         {states.pokemonList && states.pokemonList.map((item) => {
@@ -49,7 +49,7 @@ function HomePage() {
         {/* ele vai mapear pelo tamanho do array da pokemonList, ou seja, vai aparecer 20 cards */}
         {/* cada card terá seu url e fará uma requisão para pegar a url do pokemon (essa url contem TUDO do pokemon) */}
       </FlexContainer>
-    </div>
+    
   );
 }
 

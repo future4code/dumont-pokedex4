@@ -4,35 +4,10 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { useHistory } from 'react-router-dom'
 import { useRequestData } from '../../hooks/useRequestData'
+import { StyledCardP, StyledImgP, StyledButtonP,ButtonsContainerP } from '../../components/styled'
 
 
-const StyledCard = styled(Card)`
-    width: 250px;
-    height: 100%;
-    background-color: black;
-    color: white;
-    border: 1px solid white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-`
 
-const StyledButton = styled(Button)`
-    width: 100px;
-    height: 70px;
-`
-const ButtonsContainer = styled.div`
-    display: flex;
-    justify-content: space-evenly;
-    gap: 1em;
-`
-
-const StyledImg = styled(Card.Img)`
-    width: 200px;
-    height: 200px;
-    padding: 1em;
-`
 
 function CardPokemon(props) {
   const history = useHistory()
@@ -43,16 +18,16 @@ function CardPokemon(props) {
   }
 
   return (<div>
-    {pokemon && <StyledCard>
-      <StyledImg variant="top" src={pokemon.sprites.other.dream_world.front_default} />
+    {pokemon && <StyledCardP>
+      <StyledImgP variant="top" src={pokemon.sprites.other.dream_world.front_default} />
       <Card.Body>
         <Card.Title>{pokemon.name}</Card.Title>
-        <ButtonsContainer>
-          <StyledButton variant="dark" onClick={() => goToDetails(pokemon.id, pokemon.name)}>detalhes</StyledButton>
-          <StyledButton variant="dark" onClick={props.removePokeFromPokedex}> deletar Pokedex </StyledButton>
-        </ButtonsContainer>
+        <ButtonsContainerP>
+          <StyledButtonP variant="dark" onClick={() => goToDetails(pokemon.id, pokemon.name)}>detalhes</StyledButtonP>
+          <StyledButtonP variant="dark" onClick={props.removePokeFromPokedex}> deletar Pokedex </StyledButtonP>
+        </ButtonsContainerP>
       </Card.Body>
-    </StyledCard>
+    </StyledCardP>
 
     }
   </div>
