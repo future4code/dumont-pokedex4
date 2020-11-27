@@ -26,8 +26,8 @@ function CardPokemon(props) {
                 <Card.Body>
                     <Card.Title>{pokemon.name}</Card.Title>
                     <ButtonsContainer>
-                        <StyledButton variant="dark" onClick={() => goToDetails(pokemon.id, pokemon.name)}>detalhes</StyledButton>
-                        <StyledButton variant="dark" onClick={props.addPokeToPokedex} >add pokedex</StyledButton>
+                        <StyledButton variant="secondary" onClick={() => goToDetails(pokemon.id, pokemon.name)}>detalhes</StyledButton>
+                        <StyledButton variant="success" onClick={props.addPokeToPokedex} >add pokedex</StyledButton>
                     </ButtonsContainer>
 
                 </Card.Body>

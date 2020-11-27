@@ -1,12 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import { useHistory } from 'react-router-dom'
 import { useRequestData } from '../../hooks/useRequestData'
-import { StyledCardP, StyledImgP, StyledButtonP,ButtonsContainerP } from '../../components/styled'
-
-
+import { StyledCard, StyledImg, StyledButton,ButtonsContainer } from '../styled'
 
 
 function CardPokemon(props) {
@@ -18,16 +14,16 @@ function CardPokemon(props) {
   }
 
   return (<div>
-    {pokemon && <StyledCardP>
-      <StyledImgP variant="top" src={pokemon.sprites.other.dream_world.front_default} />
+    {pokemon && <StyledCard>
+      <StyledImg variant="top" src={pokemon.sprites.other.dream_world.front_default} />
       <Card.Body>
         <Card.Title>{pokemon.name}</Card.Title>
-        <ButtonsContainerP>
-          <StyledButtonP variant="dark" onClick={() => goToDetails(pokemon.id, pokemon.name)}>detalhes</StyledButtonP>
-          <StyledButtonP variant="dark" onClick={props.removePokeFromPokedex}> deletar Pokedex </StyledButtonP>
-        </ButtonsContainerP>
+        <ButtonsContainer>
+          <StyledButton variant="secondary" onClick={() => goToDetails(pokemon.id, pokemon.name)}>detalhes</StyledButton>
+          <StyledButton variant="danger" onClick={props.removePokeFromPokedex}> deletar Pokedex </StyledButton>
+        </ButtonsContainer>
       </Card.Body>
-    </StyledCardP>
+    </StyledCard>
 
     }
   </div>

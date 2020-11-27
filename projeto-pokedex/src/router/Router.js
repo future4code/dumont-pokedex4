@@ -4,7 +4,7 @@ import PokedexPage from '../pages/PokedexPage'
 import DetailsPage from '../pages/DetailsPage'
 import HomePage from '../pages/HomePage'
 import ErrorPage from '../pages/ErrorPage'
-import Header from '../components/Header'
+import Header from '../components/Headers/Header'
 import Footer from '../components/Footer'
 import { goToPokedex, goToHome } from '../router/coordinator'
 

@@ -1,14 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const ErrorContainer = styled.div`
-    height: 85.5vh;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-`
+import { ErrorContainer } from './styled'
 
 function ErrorPage() {
     return (
