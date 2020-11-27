@@ -16,9 +16,11 @@ https://panoramic-mint.surge.sh/
 - função de adicionar pokemons na pokedex
 - função de remover pokemons na pokedex
 - função de deletar ou remover pokemons no header da pagina de detalhes
+- responsividade
 
 ### O que não funciona: 
 - quando você deleta um pokemon da pokedex, ele vai parar lá no final da lista de pokemons da home
+- resto dos desafios
 
 ### Figma
 https://www.figma.com/file/bD5yMu5Jg2Gqi9Keja9REA/Untitled?node-id=0%3A1
