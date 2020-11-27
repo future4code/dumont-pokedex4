@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import HeaderDetails from '../components/HeaderDetails'
 
+
 const BoxA = styled.div`
     display: flex;
     flex-direction: column;

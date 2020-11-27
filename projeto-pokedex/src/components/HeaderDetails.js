@@ -5,33 +5,9 @@ import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import { goToHome, goToPokedex } from '../router/coordinator'
 import GlobalStateContext from '../global/GlobalStateContext.js'
+import { HeaderContainerD,ButtonRightD,ButtonLeftD,LogoD } from './styled'
 
-const HeaderContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black;
-  background-color: #FDE964;
-  height: 8vh;
-  position: relative;
-`
 
-const ButtonRight = styled(Button)`
-  position: absolute;
-  right: 10px;
-  margin-right: 2em;
-`
-
-const ButtonLeft = styled(Button)`
-  position: absolute;
-  left: 10px;
-  margin-left: 2em;
-`
-
-const Logo = styled.img`
-  cursor: pointer;
-  width: 10%;
-`
 
 function HeaderDetails(props) {
   const { states, setters } = useContext(GlobalStateContext)
@@ -65,11 +41,11 @@ function HeaderDetails(props) {
   }
 
   return (
-    <HeaderContainer >
-      <ButtonLeft variant="danger" onClick={() => goToPokedex(history)}> Pokedex </ButtonLeft>
-      <Logo src={logo} onClick={() => goToHome(history)} />
-      <ButtonRight variant="danger" onClick={() => whatToDo(props.pokemon)}>{indexOfPokedex === -1 ? "adicionar na pokedex" : "deletar da pokedex"} </ButtonRight>
-    </HeaderContainer>
+    <HeaderContainerD >
+      <ButtonLeftD variant="danger" onClick={() => goToPokedex(history)}> Pokedex </ButtonLeftD>
+      <LogoD src={logo} onClick={() => goToHome(history)} />
+      <ButtonRightD variant="danger" onClick={() => whatToDo(props.pokemon)}>{indexOfPokedex === -1 ? "adicionar na pokedex" : "deletar da pokedex"} </ButtonRightD>
+    </HeaderContainerD>
   );
 }
 

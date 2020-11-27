@@ -7,9 +7,10 @@ const FlexContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 2em;
+    padding: 20px;
     background-color: black;
     gap: 1em;
+    height:1600px;
 `
 const NoPokeContainer = styled.div`
     height: 77vh;
