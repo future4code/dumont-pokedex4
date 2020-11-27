@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, { useContext } from 'react'
 import logo from '../assets/logo.svg'
 import Button from 'react-bootstrap/Button'
 import { useHistory } from 'react-router-dom'
@@ -34,41 +34,33 @@ const Logo = styled.img`
 `
 
 function HeaderDetails(props) {
-  const [inPokedex, setInPokedex] = useState(null)
   const { states, setters } = useContext(GlobalStateContext)
   const history = useHistory()
 
+  const indexOfPokedex = states.pokedex.findIndex((item) => item.name === props.pokemon.name)
+
   const whatToDo = (item) => {
+
     const indexList = states.pokemonList.findIndex((i) => i.name === item.name)
-    const indexPokedex = states.pokedex.findIndex((item) => item.name === item.name)
+    const indexPokedex = states.pokedex.findIndex((i) => i.name === item.name)
+
+    let newPokedex = [...states.pokedex]
+    let newPokeList = [...states.pokemonList]
 
     if ((indexPokedex === -1)) {
-      
-
-      let newPokedex = [...states.pokedex]
       newPokedex.push({ ...item })
-      setters.setPokedex(newPokedex)
-
-      let newPokeList = [...states.pokemonList]
       newPokeList.splice(indexList, 1)
-      setters.setPokemonList(newPokeList)
-
       alert(`${item.name} foi adicionado na pokedex!`)
-      setInPokedex(true)
+
     } else {
-      
-
-      let newPokedex = [...states.pokedex]
       newPokedex.splice(indexPokedex, 1)
-      setters.setPokedex(newPokedex)
-
-      let newPokeList = [...states.pokemonList]
       newPokeList.push({ ...item })
-      setters.setPokemonList(newPokeList)
-
       alert(`${item.name} foi removido da pokedex!`)
-      setInPokedex(false)
+
     }
+
+    setters.setPokedex(newPokedex)
+    setters.setPokemonList(newPokeList)
 
   }
 
@@ -76,7 +68,7 @@ function HeaderDetails(props) {
     <HeaderContainer >
       <ButtonLeft variant="danger" onClick={() => goToPokedex(history)}> Pokedex </ButtonLeft>
       <Logo src={logo} onClick={() => goToHome(history)} />
-  <ButtonRight variant="danger" onClick={() => whatToDo(props.pokemon)}>{inPokedex ? "remover" : "adicionar"}</ButtonRight>
+      <ButtonRight variant="danger" onClick={() => whatToDo(props.pokemon)}>{indexOfPokedex === -1 ? "adicionar na pokedex" : "deletar da pokedex"} </ButtonRight>
     </HeaderContainer>
   );
 }
