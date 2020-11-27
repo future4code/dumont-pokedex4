@@ -9,7 +9,6 @@ import Footer from '../components/Footer'
 import { goToPokedex, goToHome } from '../router/coordinator'
 
 
-
 function Router() {
   return (
     <BrowserRouter>
