@@ -37,9 +37,11 @@ function PokedexPage() {
         // copia a pokemonList com o que tá
         let newPokeList = [...states.pokemonList]
         // adiciona o item que é removido da pokedex para a a pokemonList
-        newPokeList.push({ ...itemToRemove, inPokedex: false })
+        newPokeList.push({ ...itemToRemove })
         // seta a pokemonList com esse item
         setters.setPokemonList(newPokeList)
+
+        alert(`${itemToRemove.name} foi removido da pokedex!`)
     }
 
     const pokedexList = states.pokedex.map((item) => {

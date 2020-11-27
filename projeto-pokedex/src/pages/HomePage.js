@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import CardPokemon from '../components/MainHome/CardPokemon'
 import styled from 'styled-components'
 import GlobalStateContext from '../global/GlobalStateContext.js'
@@ -10,6 +10,7 @@ const FlexContainer = styled.div`
     padding: 2em;
     background-color: black;
     gap: 1em;
+    height: 100%;
 `
 
 function HomePage() {
@@ -22,7 +23,7 @@ function HomePage() {
     // copia a pokedex com o que tá
     let newPokedex = [...states.pokedex]
     // adiciona o item na pokedex
-    newPokedex.push({ ...newItem, inPokedex: true })
+    newPokedex.push({ ...newItem })
     // seta a pokedex com o novo item
     setters.setPokedex(newPokedex)
 
