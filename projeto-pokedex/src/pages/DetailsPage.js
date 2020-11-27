@@ -11,6 +11,7 @@ const BoxA = styled.div`
     justify-content: center;
     align-content: center;
 `
+
 const BoxB = styled.div`
     display: flex;
     justify-content: column;
