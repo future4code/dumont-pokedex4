@@ -4,32 +4,33 @@ import { baseUrl } from '../constants/urls'
 import GlobalStateContext from './GlobalStateContext.js'
 
 const GlobalState = (props) => {
-  // pokemonList é a lista de 25 pokemons
+  // pokemonList é a lista de 20 pokemons
   // pokedex é a lista de pokemons da pokedex, que será usada depois
-  const [pokemonList, setPokemonList] = useState([]);
-  const [pokedex, setPokedex] = useState([]);
+  const [pokemonList, setPokemonList] = useState([])
+  const [pokedex, setPokedex] = useState([])
 
   useEffect(() => {
     getPokemons()
   }, [])
+
   // pegar 20 pokemons, cada um com url e name
   const getPokemons = () => {
     axios
       .get(`${baseUrl}`)
       .then((response) => {
         // response.data.results = um array e cada item tem uma url e um nome
-        setPokemonList(response.data.results);
+        setPokemonList(response.data.results)
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => alert(error.message))
   };
 
   // states tem os states, setters tem o setStates e o request a função
-  const states = { pokemonList, pokedex };
-  const setters = { setPokemonList, setPokedex };
-  const requests = { getPokemons };
+  const states = { pokemonList, pokedex }
+  const setters = { setPokemonList, setPokedex }
+  const requests = { getPokemons }
 
   // esqueminha da chijo de separação
-  const data = { states, setters, requests };
+  const data = { states, setters, requests }
 
   return (
     <GlobalStateContext.Provider value={data}>

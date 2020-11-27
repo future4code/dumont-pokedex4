@@ -17,6 +17,7 @@ const StyledCard = styled(Card)`
     align-items: center;
     flex-direction: column;
 `
+
 const StyledButton = styled(Button)`
     width: 100px;
     height: 70px;
@@ -37,13 +38,17 @@ function CardPokemon(props) {
   const history = useHistory()
   const pokemon = useRequestData(props.url, undefined)
 
+  const goToDetails = (id, name) => {
+     history.push(`/detalhes/${id}/${name}`)
+  }
+
   return (<div>
     {pokemon && <StyledCard>
       <StyledImg variant="top" src={pokemon.sprites.other.dream_world.front_default} />
       <Card.Body>
         <Card.Title>{pokemon.name}</Card.Title>
         <ButtonsContainer>
-          <StyledButton variant="dark" onClick={null}>detalhes</StyledButton>
+          <StyledButton variant="dark" onClick={() => goToDetails(pokemon.id, pokemon.name)}>detalhes</StyledButton>
           <StyledButton variant="dark" onClick={props.removePokeFromPokedex}> deletar Pokedex </StyledButton>
         </ButtonsContainer>
       </Card.Body>

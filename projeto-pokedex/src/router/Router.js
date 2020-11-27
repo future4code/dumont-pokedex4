@@ -5,7 +5,7 @@ import DetailsPage from '../pages/DetailsPage'
 import HomePage from '../pages/HomePage'
 import ErrorPage from '../pages/ErrorPage'
 import Header from '../components/Header'
-import Footer from '../components/Footer/Footer'
+import Footer from '../components/Footer'
 import { goToPokedex, goToHome } from '../router/coordinator'
 
 function Router() {
@@ -17,9 +17,7 @@ function Router() {
                 <HomePage />
                 <Footer />
             </Route>
-            <Route exact path= "/detalhes/:nome">
-                <Header leftButtonFunction={goToHome}
-                        rightButtonFunction={goToPokedex} buttonTitle={"Ver Pokemons"}/>
+            <Route exact path= "/detalhes/:id/:name">
                 <DetailsPage />
                 <Footer />
             </Route>
