@@ -8,14 +8,16 @@ const FooterContainer = styled.div`
   color: black;
   background-color: #FDE964;
   height: 5vh;
-  padding: 1em;
-  padding-top: 2em;
+
 `
+
 
 function Footer() {
     return (
-      <FooterContainer>
-          <p> Desenvolvido pelo Grupo 4 </p>
+      <FooterContainer >
+          
+          <p> Desenvolvido por DevsTops!  </p>
+          
       </FooterContainer>
     );
   }

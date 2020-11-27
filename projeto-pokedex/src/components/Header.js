@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import { goToHome } from '../router/coordinator'
 import logo from '../assets/logo.svg'
-import Button from 'react-bootstrap/Button'
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -15,10 +14,16 @@ const HeaderContainer = styled.div`
   position: relative;
 `
 
-const ButtonLeft = styled(Button)`
+const ButtonRight = styled.button`
+  margin-right:2em;
+  position: absolute;
+  right: 10px;
+`
+
+const ButtonLeft = styled.button`
+  margin-left: 2em;
   position: absolute;
   left: 10px;
-  margin-left: 2em;
 `
 
 const Logo = styled.img`
@@ -26,13 +31,16 @@ const Logo = styled.img`
   width: 10%;
 `
 
-function Header({ leftButtonFunction, buttonTitle }) {
+function Header({ leftButtonFunction, rightButtonFunction, buttonTitle }) {
   const history = useHistory()
 
   return (
     <HeaderContainer >
-      <ButtonLeft variant="danger"onClick={() => leftButtonFunction(history)}> {buttonTitle} </ButtonLeft>
+      <ButtonLeft onClick={() => leftButtonFunction(history)}> {buttonTitle} </ButtonLeft>
       <Logo src={logo} onClick={() => goToHome(history)} />
+      {rightButtonFunction && <ButtonRight onClick={() => rightButtonFunction(history)} >
+                Ir para pokedex
+      </ButtonRight>}
     </HeaderContainer>
   );
 }
