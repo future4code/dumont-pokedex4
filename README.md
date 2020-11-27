@@ -7,7 +7,7 @@
 -  Ruth Mendes
 
 ### Link do Surge:
-www.link.com.br
+https://panoramic-mint.surge.sh/
 
 ### O que funciona:
 - lista de 20 pokemons e respectivos card
