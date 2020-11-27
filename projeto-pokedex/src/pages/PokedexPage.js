@@ -1,24 +1,8 @@
 import React, { useContext } from 'react'
-import styled from 'styled-components'
 import CardPokemon from '../components/MainPokedex/CardPokemon'
 import GlobalStateContext from '../global/GlobalStateContext.js'
+import { FlexContainer, MainContainer, NoPokeContainer, Title } from './styled'
 
-const FlexContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
-    background-color: black;
-    gap: 1em;
-    height:1600px;
-`
-const NoPokeContainer = styled.div`
-    height: 77vh;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
 
 function PokedexPage() {
     const { states, setters } = useContext(GlobalStateContext)
@@ -49,10 +33,13 @@ function PokedexPage() {
         return <CardPokemon removePokeFromPokedex={() => removePokeFromPokedex(item)} url={item.url} />
     });
     return (
-
-        <FlexContainer>
+        <MainContainer>
+            <Title>Pokedex</Title>
+            <FlexContainer>
             {pokedexList.length > 0 ? pokedexList : <NoPokeContainer><h1>Sem Pokemons!</h1></NoPokeContainer>}
-        </FlexContainer>
+            </FlexContainer>
+        </MainContainer>
+        
     );
 }
 

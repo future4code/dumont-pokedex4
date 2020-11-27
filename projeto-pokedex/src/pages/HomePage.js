@@ -1,17 +1,7 @@
 import React, { useContext } from 'react'
 import CardPokemon from '../components/MainHome/CardPokemon'
-import styled from 'styled-components'
 import GlobalStateContext from '../global/GlobalStateContext.js'
-
-const FlexContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
-    background-color: black;
-    gap: 10px;
-    height:1600px;
-`
+import { FlexContainer, MainContainer, Title } from './styled'
 
 function HomePage() {
   const { states, setters } = useContext(GlobalStateContext)
@@ -40,7 +30,8 @@ function HomePage() {
   }
 
   return (
-    
+    <MainContainer>
+      <Title>Lista de Pokemons</Title>
       <FlexContainer>
         {/* curto-circuito pra saber se a pokemonList ta viva, se sim pega o estado pokemonList e mapeia ele para pegar o url */}
         {states.pokemonList && states.pokemonList.map((item) => {
@@ -49,6 +40,7 @@ function HomePage() {
         {/* ele vai mapear pelo tamanho do array da pokemonList, ou seja, vai aparecer 20 cards */}
         {/* cada card terá seu url e fará uma requisão para pegar a url do pokemon (essa url contem TUDO do pokemon) */}
       </FlexContainer>
+    </MainContainer>
     
   );
 }
