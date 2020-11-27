@@ -83,6 +83,8 @@ function DetailsPage() {
     // pegar o :id lá da função 
     const params = useParams();
 
+    const object = {name: params.name, url: `${baseUrl}/${params.id}`}
+
     // fazendo a requisição usando o parametro recebido
     const pokeDetails = useRequestData(`${baseUrl}/${params.id}`, undefined)
 
@@ -90,7 +92,7 @@ function DetailsPage() {
 
     return (
         <div>
-            <HeaderDetails name={params.name} />
+            <HeaderDetails pokemon={object} />
             {pokeDetails ? <DetailsContainer>
                 <BoxA>
                     <PokeImgContainer>

@@ -24,6 +24,9 @@ const ButtonLeft = styled(Button)`
 const Logo = styled.img`
   cursor: pointer;
   width: 10%;
+  @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+    width: 28%;
+  }
 `
 
 function Header({ leftButtonFunction, buttonTitle }) {

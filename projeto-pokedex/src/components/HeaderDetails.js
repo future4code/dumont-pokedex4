@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import logo from '../assets/logo.svg'
 import Button from 'react-bootstrap/Button'
 import { useHistory } from 'react-router-dom'
@@ -33,49 +33,34 @@ const Logo = styled.img`
   width: 10%;
 `
 
-function HeaderDetails() {
+function HeaderDetails(props) {
   const { states, setters } = useContext(GlobalStateContext)
   const history = useHistory()
 
+  const indexOfPokedex = states.pokedex.findIndex((item) => item.name === props.pokemon.name)
+
   const whatToDo = (item) => {
-    if (states.pokemonList.inPokedex || states.pokedex.inPokedex) {
-      const index = states.pokemonList.findIndex((i) => i.name === item.name)
 
-      // copia a pokedex com o que tá
-      let newPokedex = [...states.pokedex]
-      // adiciona o item na pokedex
-      newPokedex.push({ ...item, inPokedex: true })
-      // seta a pokedex com o novo item
-      setters.setPokedex(newPokedex)
+    const indexList = states.pokemonList.findIndex((i) => i.name === item.name)
+    const indexPokedex = states.pokedex.findIndex((i) => i.name === item.name)
 
-      console.log(newPokedex)
+    let newPokedex = [...states.pokedex]
+    let newPokeList = [...states.pokemonList]
 
-      // copia a pokemonList com o que tá
-      let newPokeList = [...states.pokemonList]
-      // apaga o item com base no seu index
-      newPokeList.splice(index, 1)
-      // seta a pokemonList sem esse item
-      setters.setPokemonList(newPokeList)
-
+    if ((indexPokedex === -1)) {
+      newPokedex.push({ ...item })
+      newPokeList.splice(indexList, 1)
       alert(`${item.name} foi adicionado na pokedex!`)
+
     } else {
-      // acha o index do item que é para remoção
-      const index = states.pokedex.findIndex((item) => item.name === item.name)
+      newPokedex.splice(indexPokedex, 1)
+      newPokeList.push({ ...item })
+      alert(`${item.name} foi removido da pokedex!`)
 
-      // copia a pokedex com o que tá
-      let newPokedex = [...states.pokedex]
-      // apaga o item para remoção com base no seu index
-      newPokedex.splice(index, 1)
-      // seta a pokedex sem esse item
-      setters.setPokedex(newPokedex)
-
-      // copia a pokemonList com o que tá
-      let newPokeList = [...states.pokemonList]
-      // adiciona o item que é removido da pokedex para a a pokemonList
-      newPokeList.push({ ...item, inPokedex: false })
-      // seta a pokemonList com esse item
-      setters.setPokemonList(newPokeList)
     }
+
+    setters.setPokedex(newPokedex)
+    setters.setPokemonList(newPokeList)
 
   }
 
@@ -83,7 +68,7 @@ function HeaderDetails() {
     <HeaderContainer >
       <ButtonLeft variant="danger" onClick={() => goToPokedex(history)}> Pokedex </ButtonLeft>
       <Logo src={logo} onClick={() => goToHome(history)} />
-      <ButtonRight variant="danger" onClick={() => whatToDo(props.name)} >add / remover</ButtonRight>
+      <ButtonRight variant="danger" onClick={() => whatToDo(props.pokemon)}>{indexOfPokedex === -1 ? "adicionar na pokedex" : "deletar da pokedex"} </ButtonRight>
     </HeaderContainer>
   );
 }

@@ -10,6 +10,8 @@ const FooterContainer = styled.div`
   height: 5vh;
   padding: 1em;
   padding-top: 2em;
+  position: static;
+  bottom: 0;
 `
 
 function Footer() {

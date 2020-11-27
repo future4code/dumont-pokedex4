@@ -22,7 +22,7 @@ const GlobalState = (props) => {
         setPokemonList(response.data.results)
       })
       .catch((error) => alert(error.message))
-  };
+  }
 
   // states tem os states, setters tem o setStates e o request a função
   const states = { pokemonList, pokedex }
