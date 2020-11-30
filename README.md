@@ -1,16 +1,29 @@
 # POKEDEX
 
-Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
 
-Link do Surge: www.link.com.br
+### Nome dos integrantes: 
+- Luciana Verdinelli
+- Nicole Zolnier
+-  Ruth Mendes
 
-O que funciona:
-- Item 1
-- Item 2
+### Link do Surge:
+https://panoramic-mint.surge.sh/
 
-O que não funciona: 
-- Item 3
-- Item 4
+### O que funciona:
+- lista de 20 pokemons e respectivos card
+- rotas no header (a logo é uma rota para a home)
+- função de ver detalhes
+- função de adicionar pokemons na pokedex
+- função de remover pokemons na pokedex
+- função de deletar ou remover pokemons no header da pagina de detalhes
+- responsividade
+
+### O que não funciona: 
+- quando você deleta um pokemon da pokedex, ele vai parar lá no final da lista de pokemons da home
+- resto dos desafios
+
+### Figma
+https://www.figma.com/file/bD5yMu5Jg2Gqi9Keja9REA/Untitled?node-id=0%3A1
+
+### Postman
+https://www.getpostman.com/collections/9e661df136161c767850
