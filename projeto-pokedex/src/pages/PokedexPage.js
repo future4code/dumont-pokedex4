@@ -10,6 +10,7 @@ const FlexContainer = styled.div`
     padding: 2em;
     background-color: black;
     gap: 1em;
+    height: 100%;
 `
 const NoPokeContainer = styled.div`
     height: 77vh;
@@ -17,6 +18,7 @@ const NoPokeContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    
 `
 
 function PokedexPage() {

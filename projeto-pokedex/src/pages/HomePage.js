@@ -10,7 +10,8 @@ const FlexContainer = styled.div`
     padding: 2em;
     background-color: black;
     gap: 1em;
-    height: 100%;
+    height: 100vh;
+
 `
 
 function HomePage() {

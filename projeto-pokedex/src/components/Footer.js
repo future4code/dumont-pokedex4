@@ -10,14 +10,15 @@ const FooterContainer = styled.div`
   height: 5vh;
   padding: 1em;
   padding-top: 2em;
-  position: static;
+  position: fixed;
   bottom: 0;
+  width: 100%;
 `
 
 function Footer() {
     return (
       <FooterContainer>
-          <p> Desenvolvido pelo Grupo 4 </p>
+          <p> pokedex </p>
       </FooterContainer>
     );
   }
