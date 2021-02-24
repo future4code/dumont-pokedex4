@@ -40,9 +40,9 @@ function CardPokemon(props) {
     
     const pokemon = useRequestData(props.url, undefined)
 
-    // funcao para ir pra pagina de detalhes do pokemon escolhido
+    
     const goToDetails = (id, name) => {
-        // ela recebe um parametro que na chamada da função será pokemon.name e dai na url fica com o nome do pokemon
+       
         history.push(`/detalhes/${id}/${name}`)
     }
 

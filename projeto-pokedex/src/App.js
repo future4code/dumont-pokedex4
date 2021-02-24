@@ -14,4 +14,4 @@ function App() {
 
 export default App;
 
-// app limpinho, apenas com o globalState e o router, como a chijo ensinou na aula <3
+
