@@ -5,3 +5,4 @@ export const goToPokedex = (history) => {
 export const goToHome = (history) => {
     history.push("/")
 }
+
